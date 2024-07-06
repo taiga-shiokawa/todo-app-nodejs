@@ -1,6 +1,7 @@
 const { get } = require("mongoose");
 const Task = require("../models/Task");
 
+//全てのタスクを取得
 const getAllTasks = async (req, res) => {
   try {
     const allTask = await Task.find({});
@@ -10,6 +11,7 @@ const getAllTasks = async (req, res) => {
   }
 };
 
+//タスクを1つ新規作成
 const createTask = async (req, res) => {
   try {
     const createTask = await Task.create(req.body);
@@ -19,6 +21,7 @@ const createTask = async (req, res) => {
   }
 };
 
+//タスクを1つ取得
 const getSingleTask = async (req, res) => {
   try {
     const getSingleTask = await Task.findOne({ _id: req.params.id });
@@ -31,6 +34,7 @@ const getSingleTask = async (req, res) => {
   }
 };
 
+//タスクを1つ更新
 const updateTask = async (req, res) => {
   try {
     const updateTask = await Task.findOneAndUpdate(
@@ -49,6 +53,7 @@ const updateTask = async (req, res) => {
   }
 };
 
+//タスクを1つ削除
 const deleteTask = async (req, res) => {
   try {
     const deleteTask = await Task.findOneAndDelete({ _id: req.params.id });
